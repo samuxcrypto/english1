@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Final Exam Study Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --paper: #f7f4ee;
+    --accent: #2d6a4f;
+    --accent-light: #d8f3dc;
+    --highlight: #f4a261;
+    --highlight-light: #fff3e8;
+    --rule: #c9c3b8;
+    --muted: #6b6660;
+    --red: #c0392b;
+    --blue: #1a4a8a;
+    --blue-light: #e8f0fb;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 60px 40px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    width: 40%;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 18px,
+      rgba(255,255,255,0.03) 18px,
+      rgba(255,255,255,0.03) 19px
+    );
+  }
+
+  .header-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--highlight);
+    margin-bottom: 14px;
+  }
+
+  header h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    line-height: 1.15;
+    max-width: 640px;
+  }
+
+  header h1 em {
+    font-style: italic;
+    color: var(--accent-light);
+  }
+
+  .header-sub {
+    margin-top: 16px;
+    color: rgba(247,244,238,0.65);
+    font-size: 15px;
+    max-width: 500px;
+  }
+
+  .toc-strip {
+    background: var(--accent);
+    color: white;
+    padding: 18px 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .toc-strip a {
+    color: rgba(255,255,255,0.82);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.25);
+    padding-bottom: 1px;
+    transition: color 0.2s;
+  }
+
+  .toc-strip a:hover { color: white; }
+
+  /* ── MAIN LAYOUT ── */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ── SECTION BLOCKS ── */
+  .section {
+    margin-top: 64px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 28px;
+    padding-bottom: 18px;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .section-num {
+    font-family: 'Fraunces', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--rule);
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: -4px;
+  }
+
+  .section-title h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .section-title p {
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 32px 0 12px;
+    color: var(--accent);
+  }
+
+  p { margin-bottom: 12px; }
+
+  /* ── TABLES ── */
+  .table-wrap { overflow-x: auto; margin: 16px 0 24px; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14.5px;
+  }
+
+  thead tr {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  thead th {
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  tbody tr:nth-child(even) { background: rgba(26,26,46,0.04); }
+  tbody tr:hover { background: var(--accent-light); }
+
+  td {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+
+  td code, th code {
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    background: rgba(26,26,46,0.07);
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+
+  /* ── CALLOUT BOXES ── */
+  .callout {
+    border-left: 4px solid var(--accent);
+    background: var(--accent-light);
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 0 6px 6px 0;
+    font-size: 14.5px;
+  }
+
+  .callout.warning {
+    border-color: var(--highlight);
+    background: var(--highlight-light);
+  }
+
+  .callout.note {
+    border-color: var(--blue);
+    background: var(--blue-light);
+  }
+
+  .callout strong { display: block; margin-bottom: 4px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* ── PRACTICE BOXES ── */
+  .practice {
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 28px 0;
+  }
+
+  .practice .label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--highlight);
+    margin-bottom: 10px;
+  }
+
+  .practice ol, .practice ul {
+    padding-left: 20px;
+  }
+
+  .practice li {
+    margin-bottom: 8px;
+    font-size: 14.5px;
+    color: rgba(247,244,238,0.88);
+  }
+
+  /* ── ANSWER KEY ── */
+  .answer-key {
+    background: white;
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    padding: 28px;
+    margin-top: 64px;
+  }
+
+  .answer-key h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--accent);
+  }
+
+  .answer-key h3 {
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin: 20px 0 8px;
+  }
+
+  .answer-key ol {
+    padding-left: 20px;
+  }
+
+  .answer-key li {
+    margin-bottom: 8px;
+    font-size: 14.5px;
+  }
+
+  /* ── REVISION PLAN ── */
+  .revision-plan {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+  }
+
+  .day-card {
+    border: 1.5px solid var(--rule);
+    border-radius: 8px;
+    padding: 20px;
+    background: white;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .day-card:hover {
+    box-shadow: 0 4px 18px rgba(26,26,46,0.1);
+    transform: translateY(-2px);
+  }
+
+  .day-card .day-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .day-card p {
+    font-size: 13.5px;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.55;
+  }
+
+  /* ── EXAMPLE BLOCKS ── */
+  .example-pair {
+    display: flex;
+    gap: 12px;
+    margin: 10px 0;
+    font-size: 14.5px;
+    align-items: flex-start;
+  }
+
+  .ex-label {
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 2px 7px;
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .ex-label.indirect {
+    background: var(--accent);
+  }
+
+  mark {
+    background: #ffe08a;
+    padding: 0 2px;
+    border-radius: 2px;
+  }
+
+  /* ── MISTAKE CARDS ── */
+  .mistake-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 12px 0;
+    font-size: 14px;
+  }
+
+  .wrong, .right {
+    padding: 12px 16px;
+    border-radius: 6px;
+    line-height: 1.5;
+  }
+
+  .wrong { background: #fdecea; border-left: 3px solid var(--red); }
+  .right { background: var(--accent-light); border-left: 3px solid var(--accent); }
+
+  .verdict {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .verdict.x { color: var(--red); }
+  .verdict.ok { color: var(--accent); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: rgba(247,244,238,0.45);
+    text-align: center;
+    padding: 28px;
+    font-size: 13px;
+    margin-top: 80px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    header { padding: 40px 20px; }
+    .toc-strip { padding: 14px 20px; }
+    main { padding: 0 16px 60px; }
+    .section-num { font-size: 2rem; }
+    .mistake-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-eyebrow">Complete Reference · Moderate Difficulty</div>
+  <h1>English Final Exam<br><em>Study Guide</em></h1>
+  <p class="header-sub">Six core topics with detailed examples, practice questions, and a 4-day revision plan.</p>
+</header>
+
+<nav class="toc-strip" aria-label="Table of contents">
+  <a href="#reported-speech">1. Reported Speech</a>
+  <a href="#conditionals">2. Conditionals</a>
+  <a href="#essay-writing">3. Essay Writing</a>
+  <a href="#comprehension">4. Reading Comprehension</a>
+  <a href="#punctuation">5. Punctuation</a>
+  <a href="#email-summary">6. Email &amp; Summary</a>
+  <a href="#revision">Revision Plan</a>
+</nav>
+
+<main>
+
+  <!-- ══════════════════════════════════ SECTION 1 ══════════════════════════════════ -->
+  <section class="section" id="reported-speech">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <div class="section-title">
+        <h2>Direct &amp; Indirect Speech</h2>
+        <p>Reported speech conveys meaning without quoting exact words</p>
+      </div>
+    </div>
+
+    <h3>Backshift of Tenses</h3>
+    <p>When the reporting verb is past (<em>said, told, asked</em>), the original tense shifts one step back.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Direct Speech</th><th>Reported Speech</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td>Present Simple</td><td>Past Simple</td><td>"I play cricket." → He said he <mark>played</mark> cricket.</td></tr>
+          <tr><td>Present Continuous</td><td>Past Continuous</td><td>"I am studying." → She said she <mark>was studying</mark>.</td></tr>
+          <tr><td>Present Perfect</td><td>Past Perfect</td><td>"I have finished." → He said he <mark>had finished</mark>.</td></tr>
+          <tr><td>Past Simple</td><td>Past Perfect</td><td>"I visited Lahore." → She said she <mark>had visited</mark> Lahore.</td></tr>
+          <tr><td>Future (will)</td><td>Would</td><td>"I will call you." → He said he <mark>would call</mark> me.</td></tr>
+          <tr><td>Can</td><td>Could</td><td>"I can swim." → She said she <mark>could</mark> swim.</td></tr>
+          <tr><td>May</td><td>Might</td><td>"I may come." → He said he <mark>might</mark> come.</td></tr>
+          <tr><td>Must (obligation)</td><td>Had to</td><td>"I must leave." → She said she <mark>had to</mark> leave.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout note">
+      <strong>Important Exception</strong>
+      Universal truths and scientific facts do <em>not</em> need backshift.<br>
+      The teacher said that the Earth <strong>revolves</strong> around the Sun. ✓
+    </div>
+
+    <h3>Say vs. Tell</h3>
+    <div class="example-pair"><span class="ex-label">Tell</span> <span>Needs a personal object → She <strong>told me</strong> that she was tired.</span></div>
+    <div class="example-pair"><span class="ex-label">Say</span> <span>No object needed → She <strong>said (to me)</strong> that she was tired.</span></div>
+
+    <h3>Time &amp; Place Shifts</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Direct</th><th>Indirect</th></tr></thead>
+        <tbody>
+          <tr><td>here / now / today</td><td>there / then / that day</td></tr>
+          <tr><td>tomorrow / yesterday</td><td>the next day / the day before</td></tr>
+          <tr><td>tonight / last night</td><td>that night / the night before</td></tr>
+          <tr><td>next week / ago</td><td>the following week / before</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Reporting Questions</h3>
+    <p><strong>Yes/No questions</strong> use <em>if / whether</em> with statement word order (no inversion, no ?).</p>
+    <div class="example-pair"><span class="ex-label">Direct</span><span>"Are you coming to the party?" she asked me.</span></div>
+    <div class="example-pair"><span class="ex-label indirect">Indirect</span><span>She asked me <mark>if/whether I was coming</mark> to the party.</span></div>
+
+    <p style="margin-top:14px"><strong>Wh- questions</strong> keep the question word but switch to statement order.</p>
+    <div class="example-pair"><span class="ex-label">Direct</span><span>"Where do you live?" he asked her.</span></div>
+    <div class="example-pair"><span class="ex-label indirect">Indirect</span><span>He asked her <mark>where she lived</mark>.</span></div>
+
+    <h3>Commands &amp; Requests</h3>
+    <p>Use <code>to + verb</code> for positive and <code>not to + verb</code> for negative commands.</p>
+    <div class="example-pair"><span class="ex-label">Direct</span><span>"Don't touch that wire!" the electrician warned.</span></div>
+    <div class="example-pair"><span class="ex-label indirect">Indirect</span><span>The electrician warned them <mark>not to touch</mark> that wire.</span></div>
+
+    <div class="practice">
+      <div class="label">🔎 Practice — Convert to Indirect Speech</div>
+      <ol>
+        <li>"I have already submitted my assignment," said Ali.</li>
+        <li>"Can you close the window?" she asked me.</li>
+        <li>"Don't be late tomorrow," the manager told the staff.</li>
+        <li>"Where were you born?" the interviewer asked the candidate.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════ SECTION 2 ══════════════════════════════════ -->
+  <section class="section" id="conditionals">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <div class="section-title">
+        <h2>Conditional Sentences</h2>
+        <p>Four types — from always-true facts to unreal past regrets</p>
+      </div>
+    </div>
+
+    <h3>Zero Conditional — General Truths</h3>
+    <p><strong>If + Present Simple, Present Simple</strong></p>
+    <div class="callout"><strong>Examples</strong>If you heat ice, it melts. &nbsp;|&nbsp; If you mix blue and yellow, you get green.</div>
+
+    <h3>First Conditional — Likely Future</h3>
+    <p><strong>If + Present Simple, will + base verb</strong></p>
+    <div class="callout"><strong>Examples</strong>If it rains tomorrow, we will cancel the picnic. &nbsp;|&nbsp; If you study hard, you will pass.</div>
+
+    <h3>Second Conditional — Unreal Present / Future</h3>
+    <p><strong>If + Past Simple, would + base verb</strong></p>
+    <div class="callout warning">
+      <strong>Formal Note — Subjunctive Mood</strong>
+      Use <em>were</em> for all subjects in second conditionals.<br>
+      "If I <strong>were</strong> you, I would apologize." — NOT "If I <em>was</em> you"
+    </div>
+    <div class="callout"><strong>Examples</strong>If I had a million rupees, I would buy a house. &nbsp;|&nbsp; What would you do if you saw a ghost?</div>
+
+    <h3>Third Conditional — Unreal Past (Regrets)</h3>
+    <p><strong>If + Past Perfect, would have + past participle</strong></p>
+    <div class="callout"><strong>Examples</strong>If you had studied harder, you would have passed. &nbsp;|&nbsp; If she had left earlier, she would not have missed the flight.</div>
+
+    <h3>Quick Comparison</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Type</th><th>If Clause</th><th>Main Clause</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Zero</strong></td><td>Present Simple</td><td>Present Simple</td><td>Always true</td></tr>
+          <tr><td><strong>First</strong></td><td>Present Simple</td><td>will + verb</td><td>Likely future</td></tr>
+          <tr><td><strong>Second</strong></td><td>Past Simple</td><td>would + verb</td><td>Unreal present/future</td></tr>
+          <tr><td><strong>Third</strong></td><td>Past Perfect</td><td>would have + verb</td><td>Unreal past (regret)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="practice">
+      <div class="label">🔎 Practice — Fill in the Blanks</div>
+      <ol>
+        <li>If she ______ (study) medicine, she ______ (become) a doctor by now. <em>(third)</em></li>
+        <li>If you heat metal, it ______ (expand). <em>(zero)</em></li>
+        <li>If I ______ (win) the lottery, I ______ (travel) the world. <em>(second)</em></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════ SECTION 3 ══════════════════════════════════ -->
+  <section class="section" id="essay-writing">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <div class="section-title">
+        <h2>Essay Writing</h2>
+        <p>Seven essay types and paragraph structure</p>
+      </div>
+    </div>
+
+    <h3>The Seven Essay Types</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Type</th><th>Purpose</th><th>Example Theme</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Narrative</strong></td><td>Tells a story (real or imagined)</td><td>"A Day I Will Never Forget"</td></tr>
+          <tr><td><strong>Descriptive</strong></td><td>Vivid picture using sensory details</td><td>"The Beauty of Northern Pakistan"</td></tr>
+          <tr><td><strong>Reflective</strong></td><td>Looks back, analyzes personal growth</td><td>"What I Learned from Failure"</td></tr>
+          <tr><td><strong>Expository</strong></td><td>Explains / informs factually</td><td>"How the Internet Works"</td></tr>
+          <tr><td><strong>Argumentative</strong></td><td>Takes a stance, uses evidence to persuade</td><td>"Should Social Media Be Regulated?"</td></tr>
+          <tr><td><strong>Imaginative</strong></td><td>Explores unexperienced scenarios</td><td>"A Day in the Life of an Astronaut"</td></tr>
+          <tr><td><strong>Process</strong></td><td>Step-by-step explanation</td><td>"How Tea Is Made"</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Structuring a Strong Paragraph</h3>
+    <div class="callout note">
+      <strong>The Four Parts</strong>
+      <strong style="display:inline;text-transform:none;font-size:inherit;letter-spacing:0">1. Topic Sentence</strong> — states the main idea.<br>
+      <strong style="display:inline;text-transform:none;font-size:inherit;letter-spacing:0">2. Supporting Sentences</strong> — develop the idea with reasoning.<br>
+      <strong style="display:inline;text-transform:none;font-size:inherit;letter-spacing:0">3. Details / Examples</strong> — statistics, real examples, comparisons.<br>
+      <strong style="display:inline;text-transform:none;font-size:inherit;letter-spacing:0">4. Concluding Sentence</strong> — wraps up or bridges to next paragraph.
+    </div>
+
+    <h3>Full Essay Structure</h3>
+    <p><strong>Introduction:</strong> Hook + background + thesis statement.</p>
+    <p><strong>Body Paragraphs (2–4):</strong> Each with its own topic sentence, evidence, and examples.</p>
+    <p><strong>Conclusion:</strong> Restate thesis in new words + summarize + closing thought.</p>
+
+    <div class="practice">
+      <div class="label">🔎 Practice</div>
+      Write a topic sentence and two supporting sentences for an argumentative essay on: <em>"Should mobile phones be allowed in schools?"</em>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════ SECTION 4 ══════════════════════════════════ -->
+  <section class="section" id="comprehension">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <div class="section-title">
+        <h2>Reading Comprehension</h2>
+        <p>Core strategies and question types</p>
+      </div>
+    </div>
+
+    <h3>Three Core Strategies</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Strategy</th><th>When to Use</th><th>How</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Skimming</strong></td><td>Getting the general idea</td><td>Read quickly — don't read every word</td></tr>
+          <tr><td><strong>Scanning</strong></td><td>Finding specific facts / names / dates</td><td>Look for keywords without reading everything</td></tr>
+          <tr><td><strong>Inferencing</strong></td><td>Reading between the lines</td><td>Use tone, word choice, and context clues</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <strong>Inference Example</strong>
+      If the passage says <em>"He slammed the door and refused to speak,"</em> you can infer the character is angry — even though "angry" is never written.
+    </div>
+
+    <h3>Question Types to Expect</h3>
+    <ul style="padding-left:20px; margin-bottom:16px;">
+      <li style="margin-bottom:8px"><strong>Main Idea:</strong> "What is the passage mainly about?" → Skim first.</li>
+      <li style="margin-bottom:8px"><strong>Detail:</strong> "According to the passage…" → Scan for keywords.</li>
+      <li style="margin-bottom:8px"><strong>Inference:</strong> "What can be inferred…?" → Read between the lines.</li>
+      <li style="margin-bottom:8px"><strong>Vocabulary in Context:</strong> Look at surrounding sentences, not just the dictionary.</li>
+      <li style="margin-bottom:8px"><strong>Purpose / Tone:</strong> Is the writer critical, humorous, or neutral?</li>
+    </ul>
+
+    <div class="callout warning">
+      <strong>Exam Tip</strong>
+      Read the questions <strong>before</strong> the passage — this tells you exactly what to scan for.
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════ SECTION 5 ══════════════════════════════════ -->
+  <section class="section" id="punctuation">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <div class="section-title">
+        <h2>Punctuation</h2>
+        <p>Marks, functions, and common mistakes</p>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Mark</th><th>Function</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Full Stop (.)</strong></td><td>Ends a statement</td><td>She went to the market.</td></tr>
+          <tr><td><strong>Question Mark (?)</strong></td><td>Ends a direct question</td><td>Did you finish your homework?</td></tr>
+          <tr><td><strong>Exclamation Mark (!)</strong></td><td>Strong emotion</td><td>What a beautiful sunset!</td></tr>
+          <tr><td><strong>Semicolon (;)</strong></td><td>Joins two related independent clauses</td><td>I studied all night; I still felt nervous.</td></tr>
+          <tr><td><strong>Colon (:)</strong></td><td>Introduces a list or elaboration</td><td>She packed three items: a laptop, charger, and notebook.</td></tr>
+          <tr><td><strong>Comma (,)</strong></td><td>Lists; clauses; after introductory words</td><td>Although it was raining, we went outside.</td></tr>
+          <tr><td><strong>Quotation Marks (" ")</strong></td><td>Direct speech or titles</td><td>The teacher said, "Submit by Friday."</td></tr>
+          <tr><td><strong>Apostrophe (')</strong></td><td>Possession or contraction</td><td>Ali's book; don't</td></tr>
+          <tr><td><strong>Capital Letters</strong></td><td>Sentence start; "I"; proper nouns; titles</td><td>On Monday, I read <em>The Alchemist</em>.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Common Mistakes to Avoid</h3>
+
+    <div class="mistake-row">
+      <div class="wrong"><div class="verdict x">✗ Wrong</div>I was tired, I went to sleep. <em>(comma splice)</em></div>
+      <div class="right"><div class="verdict ok">✓ Correct</div>I was tired, <strong>so</strong> I went to sleep. <em>or use a semicolon</em></div>
+    </div>
+
+    <div class="mistake-row">
+      <div class="wrong"><div class="verdict x">✗ Wrong</div>My favorite subjects are: Math and English.</div>
+      <div class="right"><div class="verdict ok">✓ Correct</div>I enjoy the following subjects: Math and English.</div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════ SECTION 6 ══════════════════════════════════ -->
+  <section class="section" id="email-summary">
+    <div class="section-header">
+      <div class="section-num">06</div>
+      <div class="section-title">
+        <h2>Email &amp; Summary Writing</h2>
+        <p>Formal vs. informal tone and concise summarisation</p>
+      </div>
+    </div>
+
+    <h3>Formal vs. Informal Email</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Feature</th><th>Formal</th><th>Informal</th></tr></thead>
+        <tbody>
+          <tr><td>Greeting</td><td>"Dear Sir/Madam," or "Dear Mr. Khan,"</td><td>"Hi Ahmed," or "Hey!"</td></tr>
+          <tr><td>Tone</td><td>Professional, respectful</td><td>Casual, friendly</td></tr>
+          <tr><td>Contractions</td><td>Avoided ("do not")</td><td>Common ("don't," "can't")</td></tr>
+          <tr><td>Vocabulary</td><td>"I would like to request…"</td><td>"Can you…?"</td></tr>
+          <tr><td>Closing</td><td>"Yours sincerely," / "Best regards,"</td><td>"Talk soon," / "Cheers,"</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Summary Writing — Key Principles</h3>
+    <ul style="padding-left:20px; margin-bottom:16px;">
+      <li style="margin-bottom:8px"><strong>Paraphrase, don't copy</strong> — rewrite ideas in your own words.</li>
+      <li style="margin-bottom:8px"><strong>Keep it brief</strong> — about 1/4 to 1/3 the length of the original.</li>
+      <li style="margin-bottom:8px"><strong>Main points only</strong> — leave out examples, repetition, minor details.</li>
+      <li style="margin-bottom:8px"><strong>Maintain original meaning</strong> — no personal opinions or new information.</li>
+    </ul>
+
+    <div class="callout note">
+      <strong>Useful Linking Phrases</strong>
+      "The passage explains that…" &nbsp;|&nbsp; "The author argues that…" &nbsp;|&nbsp; "According to the text…"
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════ ANSWER KEY ══════════════════════════════════ -->
+  <div class="answer-key" id="answers">
+    <h2>📝 Answer Key</h2>
+
+    <h3>Section 1 — Reported Speech</h3>
+    <ol>
+      <li>Ali said (that) he <strong>had already submitted</strong> his assignment.</li>
+      <li>She asked me <strong>if/whether she could close</strong> the window.</li>
+      <li>The manager told the staff <strong>not to be late the next day</strong>.</li>
+      <li>The interviewer asked the candidate <strong>where he/she had been born</strong>.</li>
+    </ol>
+
+    <h3>Section 2 — Conditionals</h3>
+    <ol>
+      <li>If she <strong>had studied</strong> medicine, she <strong>would have become</strong> a doctor by now.</li>
+      <li>If you heat metal, it <strong>expands</strong>.</li>
+      <li>If I <strong>won</strong> the lottery, I <strong>would travel</strong> the world.</li>
+    </ol>
+  </div>
+
+  <!-- ══════════════════════════════════ REVISION PLAN ══════════════════════════════════ -->
+  <section class="section" id="revision">
+    <div class="section-header">
+      <div class="section-num" style="color:var(--highlight)">📅</div>
+      <div class="section-title">
+        <h2>4-Day Revision Plan</h2>
+        <p>Structured daily practice for exam success</p>
+      </div>
+    </div>
+
+    <div class="revision-plan">
+      <div class="day-card">
+        <div class="day-label">Day 1</div>
+        <p>Reported Speech + Conditional Sentences — drill transformation exercises.</p>
+      </div>
+      <div class="day-card">
+        <div class="day-label">Day 2</div>
+        <p>Essay Writing (one paragraph per type) + Punctuation rules.</p>
+      </div>
+      <div class="day-card">
+        <div class="day-label">Day 3</div>
+        <p>Reading Comprehension (timed skimming/scanning drills) + Summary Writing.</p>
+      </div>
+      <div class="day-card">
+        <div class="day-label">Day 4</div>
+        <p>Full mock test combining all six sections + review weak areas.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  English Final Exam Study Guide · Good luck — consistent daily practice makes these patterns feel automatic.
+</footer>
+
+</body>
+</html>
